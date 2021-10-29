@@ -75,6 +75,8 @@ $(function(){
 			//alert(  $( "td.ct_btn01:contains('수정')" ).html() );
 			fncUpdateProduct();
 	});
+	 
+	 
 });	
 
 $(function(){
@@ -87,7 +89,7 @@ $(function(){
 	});
 	
 	$($('input:text[name="manuDate"]')).datepicker( "option", "showAnim", "bounce" );
-	//$($('input:text[name="manuDate"]')).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	$($('input:text[name="manuDate"]')).datepicker( "option", "dateFormat", "yy-mm-dd" );
 	
 	var manuDate = $("#datepicker").val();
 	console.log(manuDate);
@@ -103,7 +105,7 @@ $(function(){
 <!-- ////////////////// jQuery Event 처리로 변경됨 ///////////////////////// 
 <form name="detailForm" method="post" >
 ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<form name="detailForm" enctype="multipart/form-data">
+<form name="detailForm">
 
 <%--<input type="hidden" name="prodNo" value="<%=productVO.getProdNo()%>"> --%>
 <input type="hidden" name="prodNo" value="${product.prodNo }">

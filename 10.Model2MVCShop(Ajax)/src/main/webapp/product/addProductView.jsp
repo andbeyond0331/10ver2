@@ -81,19 +81,16 @@ $(function() {
 			alert(  $( "td.ct_btn01:contains('등록')" ).html() );
 			fncAddProduct();
 	});
-});
-	
-
-
-$(function(){
-	$($('input:text[name="manuDate"]')).datepicker({
+	 
+	 $($('input:text[name="manuDate"]')).datepicker({
 		showOn : "button",
 		buttonImage: "../images/ct_icon_date.gif",
 		buttonImageOnly: true,
 		buttonText: "Select date"
 		
 	});
-	/*
+	 
+	 /*
 	$("#anim").on("change",function(){
 		$($('input:text[name="manuDate"]')).datepicker({
 			showAnim:"bounce"
@@ -102,7 +99,9 @@ $(function(){
 	*/
 	$($('input:text[name="manuDate"]')).datepicker( "option", "showAnim", "bounce" );
 	$($('input:text[name="manuDate"]')).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	
 });
+	
 
 </script>
 
@@ -113,7 +112,7 @@ $(function(){
 <!-- ////////////////// jQuery Event 처리로 변경됨 ///////////////////////// 
 <form name="detailForm"  method="post" >
 ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<form name="detailForm" enctype="multipart/form-data">
+<form name="detailForm">
 
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
