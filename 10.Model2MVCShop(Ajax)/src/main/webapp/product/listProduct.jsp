@@ -61,9 +61,7 @@
 				$( ".ct_list_pop td:nth-child(3)" ).on("click" , function() {
 					//Debug..
 					//alert(  $( this ).text().trim() );
-					///////////////추가, 변경////////////////////////////
-					//self.location ="/product/getProduct?prodNo="+$(this).text().trim();
-					//////////////////////////////////////////////////
+	
 					var prodNo = $(this).find("input[name=prodNo]").val();
 					//alert("prodNo : " +prodNo);
 					$.ajax( 
@@ -84,13 +82,14 @@
 									
 									var displayValue = "<h3>"
 																+"상 품 번 호 : "+JSONData.prodNo+"<br/>"
-																+"상  품  명 : "+JSONData.prodName+"<br/>"
+																+"상   품   명 : "+JSONData.prodName+"<br/>"
 																+"상품  이미지 : "+JSONData.fileName+"<br/>"
 																+"상품상세정보 : "+JSONData.prodDetail+"<br/>"
 																+"제 조 일 자 : "+JSONData.manuDateString+"<br/>"
 																+"가      격 : "+JSONData.price+"<br/>"
 																+"등 록 일 자 : "+JSONData.regDateString+"<br/>"
-																+"</h3>";
+																+"</h3>"
+																+"<a href=\"/addPurchaseView.do?prodNo="+JSONData.prodNo+"\"><font color=\"#A04DFF\"><h4 align=\"middle\"> 구매하기</h4></font></\a>";
 									//Debug...									
 									//alert(displayValue);
 									$("h3").remove();
@@ -102,9 +101,9 @@
 			 }
 			
 			//==> UI 수정 추가부분  :  userId LINK Event End User 에게 보일수 있도록 
-			$( ".ct_list_pop td:nth-child(3)" ).css("background-color" , "black");
-			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "lightgreen");
-			$("h7").css("color" , "red");
+			$( ".ct_list_pop td" ).css("background-color" , "black");
+			$( ".ct_list_pop td" ).css("color" , "lightgreen");
+			$("h7").css("color" , "#A04DFF");
 			
 			
 			//==> 아래와 같이 정의한 이유는 ??
@@ -320,7 +319,7 @@
 		<!-- //////////////////////////// 추가 , 변경된 부분 /////////////////////////////
 			<td colspan="11" bgcolor="D6D7D6" height="1"></td>
 			////////////////////////////////////////////////////////////////////////////////////////////  -->
-			<td id="${product.prodNo}" colspan="11" bgcolor="D6D7D6" height="1"></td>
+			<td id="${product.prodNo}" colspan="11" bgcolor="lightgreen" height="1"></td>
 	</tr>	
 	</c:forEach>
 </table>
