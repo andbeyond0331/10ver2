@@ -14,10 +14,10 @@ public class Product {
 	private int prodNo;
 	private Date regDate;
 	private String proTranCode;
-	//////////////////////////
-	// JSON ==> Domain Object Binding을 위해 추가된 부분
-	private String regDateString;
+	/////////////////////////
+	//JSON => Domain Object Binding을 위해 추가
 	private String manuDateString;
+	
 	
 	
 	///Constructor
@@ -38,16 +38,16 @@ public class Product {
 		return manuDate;
 	}
 	
-	//////////////////////////////////////////////////////////////////////////////////////////////
-	// JSON ==> Domain Object  Binding을 위해 추가된 부분
+	/////////////
+	//JSON => Domain Object Binding을 위해 추가
 	public void setManuDate(String manuDate) {
 		this.manuDate = manuDate;
 		
-		if(regDate!=null) {
-			//JSON ==> Domain Object Binding 을 위해 추가된 부분
+		if(manuDate!=null) {
+			//JSON Domain Object Binding위한 부분
 			this.setManuDateString(manuDate.toString().split("-")[0]
-					+"-"+ manuDate.toString().split("-")[1]
-					+ "-" +manuDate.toString().split("-")[2] );
+														+"-"+manuDate.toString().split("-")[1]
+														+"-"+manuDate.toString().split("-")[2]);
 		}
 	}
 
@@ -87,18 +87,8 @@ public class Product {
 		return regDate;
 	}
 
-	//////////////////////////////////////////////////////////////////////////////////////////////
-	// JSON ==> Domain Object  Binding을 위해 추가된 부분
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
-		
-		if(regDate != null) {
-			//JSON ==> Domain Object Binding 을 위해 추가된 부분
-			this.setRegDateString(regDate.toString().split("-")[0]
-												+"-"+ regDate.toString().split("-")[1]
-														+ "-" +regDate.toString().split("-")[2] );
-			
-		}
 	}
 
 	public String getProTranCode() {
@@ -109,18 +99,10 @@ public class Product {
 		this.proTranCode = proTranCode;
 	}
 	
-	public String getRegDateString() {
-		return regDateString;
-	}
-	
-	public void setRegDateString(String regDateString) {
-		this.regDateString = regDateString;
-	}
-
 	public String getManuDateString() {
 		return manuDateString;
 	}
-
+	
 	public void setManuDateString(String manuDateString) {
 		this.manuDateString = manuDateString;
 	}
