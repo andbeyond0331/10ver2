@@ -43,12 +43,12 @@ public class Product {
 	public void setManuDate(String manuDate) {
 		this.manuDate = manuDate;
 		
-		if(manuDate!=null) {
-			//JSON Domain Object Binding위한 부분
-			this.setManuDateString(manuDate.toString().split("-")[0]
-														+"-"+manuDate.toString().split("-")[1]
-														+"-"+manuDate.toString().split("-")[2]);
-		}
+//		if(manuDate!=null) {
+//			//JSON Domain Object Binding위한 부분
+//			this.setManuDateString(manuDate.toString().split("-")[0]
+//														+"-"+manuDate.toString().split("-")[1]
+//														+"-"+manuDate.toString().split("-")[2]);
+//		}
 	}
 
 	public int getPrice() {

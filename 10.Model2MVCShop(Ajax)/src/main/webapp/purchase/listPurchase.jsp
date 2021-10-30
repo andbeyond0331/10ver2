@@ -42,13 +42,79 @@
 			$( ".ct_list_pop td:nth-child(3)" ).on("click" , function() {
 				//Debug..
 				//alert(  $( this ).text().trim() );
-				self.location ="/user/getUser?userId="+$(this).data("val");
+				/////////추가, 변경//////////
+				//self.location ="/user/getUser?userId="+$(this).data("val");
+				///////////////////////////////
+				var userId = $(this).data("val").trim();
+				alert("userId : " +userId);
+				$.ajax( 
+						{
+							url : "/user/json/getUser/"+userId ,
+							method : "GET" ,
+							dataType : "json" ,
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							success : function(JSONData , status) {
+
+								//Debug...
+								//alert(status);
+								//Debug...
+								//alert("JSONData : \n"+JSONData);
+								
+								var displayValue = "<h3>"
+															+"아이디 : "+JSONData.userId+"<br/>"
+															+"이  름 : "+JSONData.userName+"<br/>"
+															+"이메일 : "+JSONData.email+"<br/>"
+															+"ROLE : "+JSONData.role+"<br/>"
+															+"등록일 : "+JSONData.regDateString+"<br/>"
+															+"</h3>";
+								//Debug...									
+								//alert(displayValue);
+								$("h3").remove();
+								$( "#"+userId+"" ).html(displayValue);
+							}
+					});
+
 			});
 			
 			$( ".ct_list_pop td:nth-child(1)" ).on("click" , function() {
 				//Debug..
-				//alert(  $( this ).text().trim() );
-				self.location ="/purchase/getPurchase?tranNo="+$(this).data("val");
+				
+				//////////////추가 변경 ////////////
+				//self.location ="/purchase/getPurchase?tranNo="+$(this).data("val");
+				//////////////////////////////////
+				var tranNo=$(this).data("val");
+				alert( "tranNo : "+tranNo );
+				$.ajax(
+						{
+							url : "/purchase/json/getPurchase/"+tranNo,
+							method : "GET",
+							dataType : "json",
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							success : function(JSONData, status) {
+								alert(status);
+								alert("JSONData : " +JSONData);
+								var displayValue = "<h3>"
+													+"주문번호 : "+JSONData.tranNo+"<br/>"
+													+"구매자 아이디 : "+JSONData.userId+"<br/>"
+													+"구매 방법 : "+JSONData.paymentOption+"<br/>"
+													+"받는 사람 : "+JSONData.receiverName+"<br/>"
+													+"연락처 : "+JSONData.receiverPhone+"<br/>"
+													+"배송지 : "+JSONData.divyAddr+"<br/>"
+													+"요청사항 : "+JSONData.divyRequest+"<br/>"
+													+"배송희망날짜 : "+JSONData.divyDateString+"<br/>"
+													+"주문날짜 : "+JSONData.orderDate+"<br/>"
+								$("h3").remove();
+								$("#"+tranNo+"").html(displayValue);
+								alert("displayValue : " + displayValue);
+							}
+							
+						});
 			});
 			
 			/* $("#arrive").on("click",function() {
@@ -204,7 +270,14 @@
 		</td>
 	</tr>
 	<tr>
+		<!-- /////////추가, 변경부분////////////
 		<td colspan="11" bgcolor="D6D7D6" height="1"></td>
+		///////// -->
+		<td id="${user.userId }" colspan="11" bgcolor="D6D7D6" height="1"></td>
+	</tr>
+	<tr>
+		
+		<td id="${purchase.tranNo }" colspan="11" bgcolor="D6D7D6" height="1"></td>
 	</tr>
 	
 <%--<% } --%>

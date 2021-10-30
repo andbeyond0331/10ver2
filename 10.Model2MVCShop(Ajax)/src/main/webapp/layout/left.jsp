@@ -72,7 +72,7 @@
 		 	$( ".Depth03:contains('구매이력조회')" ).on("click" , function() {
 				//Debug..
 				//alert(  $( ".Depth03:contains('구매이력조회')" ) );
-		 		$(window.parent.frames["rightFrame"].document.location).attr("href","/listPurchase.do");
+		 		$(window.parent.frames["rightFrame"].document.location).attr("href","/purchase/listPurchase");
 			}); 
 			
 			

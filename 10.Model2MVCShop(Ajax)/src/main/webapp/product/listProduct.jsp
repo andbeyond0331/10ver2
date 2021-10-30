@@ -90,7 +90,8 @@
 																+"제 조 일 자 : "+JSONData.manuDateString+"<br/>"
 																+"가      격 : "+JSONData.price+"<br/>"
 																+"등 록 일 자 : "+JSONData.regDateString+"<br/>"
-																+"</h3>";
+																+"</h3>"
+																+"<a href=\"/purchase/addPurchase?prodNo="+JSONData.prodNo+"\"><font color=\"#A04DFF\"><h4 align=\"middle\">구매하기</h4></font></\a>";
 									//Debug...									
 									//alert(displayValue);
 									$("h3").remove();
